@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Personal Profile - Fadzhar</title>
+
+<style>
+
+/* RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BACKGROUND */
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #e9edf5;
+    color: #293750;
+    padding: 20px;
+}
+
+/* BINGKAI UTAMA */
+
+.container {
+    width: 100%;
+    max-width: 950px;
+    margin: auto;
+    padding: 25px;
+    background: white;
+    border-radius: 18px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+/* HEADER */
+
+.header {
+    display: grid;
+    grid-template-columns: 34fr 66fr;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+/* FOTO PROFIL */
+
+.photo-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-photo {
+    width: 135px;
+    height: 135px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #647dee;
+    box-shadow: 0 4px 15px rgba(100,125,238,0.25);
+    transition: 0.3s ease;
+}
+
+.profile-photo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(100,125,238,0.4);
+}
+
+/* NAMA */
+
+.name-box {
+    min-height: 135px;
+    background: #f0f2ff;
+    border: 1px solid #dfe5ff;
+    border-radius: 15px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.name-box h1 {
+    font-size: 27px;
+    color: #405de6;
+    margin-bottom: 8px;
+}
+
+.name-box p {
+    font-size: 14px;
+    color: #75819a;
+}
+
+/* LAYOUT UTAMA */
+
+.main-content {
+    display: grid;
+    grid-template-columns: 34fr 66fr;
+    gap: 20px;
+    align-items: stretch;
+}
+
+/* KOTAK UMUM */
+
+.card {
+    background: #f8faff;
+    border: 1px solid #e2e8f3;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.card h2 {
+    color: #405de6;
+    font-size: 19px;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #e4e9ff;
+}
+
+/* BIO DATA */
+
+.biodata {
+    height: 100%;
+}
+
+.bio-item {
+    padding: 12px;
+    background: white;
+    border: 1px solid #e5eaf3;
+    border-radius: 10px;
+    margin-bottom: 12px;
+}
+
+.bio-item h3 {
+    font-size: 11px;
+    color: #8a96aa;
+    margin-bottom: 5px;
+}
+
+.bio-item p {
+    font-size: 13px;
+    font-weight: bold;
+    color: #34435c;
+    line-height: 1.5;
+}
+
+/* KOLOM KANAN */
+
+.right-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 0;
+}
+
+/* DESKRIPSI DIRI */
+
+.description {
+    min-height: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.description p {
+    font-size: 14px;
+    color: #59667c;
+    line-height: 1.85;
+    text-align: justify;
+}
+
+.description p + p {
+    margin-top: 12px;
+}
+
+/* HOBI */
+
+.hobby-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.hobby-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 13px;
+    background: white;
+    border: 1px solid #e4e9f3;
+    border-radius: 11px;
+}
+
+.hobby-icon {
+    font-size: 25px;
+}
+
+.hobby-item h3 {
+    font-size: 13px;
+    color: #405de6;
+}
+
+.hobby-item p {
+    font-size: 10px;
+    color: #8490a5;
+    margin-top: 4px;
+}
+
+/* QUOTES */
+
+.quote {
+    margin-top: 20px;
+    padding: 18px;
+    background: #edf0ff;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.quote h3 {
+    font-size: 15px;
+    color: #405de6;
+    margin-bottom: 10px;
+}
+
+.quote p {
+    font-size: 13px;
+    line-height: 1.8;
+    font-style: italic;
+    color: #5865a3;
+}
+
+.quote small {
+    display: block;
+    margin-top: 10px;
+    font-size: 11px;
+    color: #8490b5;
+}
+
+/* FOOTER */
+
+footer {
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px solid #e5eaf3;
+    text-align: center;
+    font-size: 12px;
+    color: #8993a5;
+    line-height: 1.8;
+}
+
+/* RESPONSIVE HP */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 8px;
+    }
+
+    .container {
+        padding: 12px;
+    }
+
+    .header {
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+
+    .profile-photo {
+        width: 85px;
+        height: 85px;
+    }
+
+    .name-box {
+        min-height: 85px;
+        padding: 12px;
+    }
+
+    .name-box h1 {
+        font-size: 18px;
+    }
+
+    .name-box p {
+        font-size: 10px;
+    }
+
+    .main-content {
+        gap: 10px;
+    }
+
+    .card {
+        padding: 11px;
+    }
+
+    .card h2 {
+        font-size: 14px;
+    }
+
+    .bio-item {
+        padding: 8px;
+        margin-bottom: 9px;
+    }
+
+    .bio-item h3 {
+        font-size: 9px;
+    }
+
+    .bio-item p {
+        font-size: 10px;
+        overflow-wrap: anywhere;
+    }
+
+    .description {
+        flex: initial;
+    }
+
+    .description p {
+        font-size: 11px;
+        line-height: 1.7;
+    }
+
+    .hobby-list {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .hobby-item {
+        padding: 9px;
+    }
+
+    .hobby-icon {
+        font-size: 19px;
+    }
+
+    .hobby-item h3 {
+        font-size: 11px;
+    }
+
+    .hobby-item p {
+        font-size: 9px;
+    }
+
+    .quote {
+        padding: 12px;
+    }
+
+    .quote p {
+        font-size: 10px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- HEADER: FOTO DAN NAMA -->
+
+    <div class="header">
+
+        <div class="photo-area">
+
+            <img
+                src="Foto.jpg"
+                alt="Foto Profil Fadzhar"
+                class="profile-photo"
+            >
+
+        </div>
+
+        <div class="name-box">
+
+            <h1>Fadzhar</h1>
+
+            <p>Fadzhar Az-zubair Afif</p>
+
+        </div>
+
+    </div>
+
+    <!-- KONTEN UTAMA -->
+
+    <div class="main-content">
+
+        <!-- KOLOM KIRI: BIO DATA -->
+
+        <div class="card biodata">
+
+            <h2>Bio Data</h2>
+
+            <div class="bio-item">
+                <h3>Nama Lengkap</h3>
+                <p>Fadzhar Az-zubair Afif</p>
+            </div>
+
+            <div class="bio-item">
+                <h3>Usia</h3>
+                <p>18 Tahun</p>
+            </div>
+
+            <div class="bio-item">
+                <h3>Tempat Lahir</h3>
+                <p>Bekasi</p>
+            </div>
+
+            <div class="bio-item">
+                <h3>Tanggal Lahir</h3>
+                <p>19 Desember 2008</p>
+            </div>
+
+            <div class="bio-item">
+                <h3>Jenis Kelamin</h3>
+                <p>Laki-laki</p>
+            </div>
+
+            <div class="bio-item">
+                <h3>Agama</h3>
+                <p>Islam</p>
+            </div>
+
+            <div class="bio-item">
+                <h3>Kewarganegaraan</h3>
+                <p>Indonesia</p>
+            </div>
+
+            <div class="bio-item">
+                <h3>Sekolah</h3>
+                <p>SMAN 1 SETU</p>
+            </div>
+
+            <div class="bio-item">
+                <h3>Kelas</h3>
+                <p>XII</p>
+            </div>
+
+            <div class="bio-item">
+                <h3>Jurusan</h3>
+                <p>Kesehatan</p>
+            </div>
+
+            <div class="bio-item">
+                <h3>Minat Akademik</h3>
+                <p>Kimia dan Biologi</p>
+            </div>
+
+            <div class="bio-item">
+                <h3>Cita-cita</h3>
+                <p>Apoteker</p>
+            </div>
+
+            <div class="bio-item">
+                <h3>Alamat</h3>
+                <p>Perum. GBP 1 Jl Anggrek 3</p>
+            </div>
+
+        </div>
+
+        <!-- KOLOM KANAN -->
+
+        <div class="right-content">
+
+            <!-- DESKRIPSI DIRI -->
+
+            <div class="card description">
+
+                <h2>Deskripsi Diri</h2>
+
+                <p>
+                    Perkenalkan, nama saya Fadzhar Az-zubair Afif.
+                    Saya merupakan siswa SMAN 1 SETU dan saat ini
+                    sedang menempuh pendidikan di bangku kelas XII.
+                    Saya adalah seseorang yang memiliki rasa ingin
+                    tahu tinggi serta ketertarikan terhadap ilmu
+                    pengetahuan, khususnya di bidang kimia, biologi,
+                    dan kesehatan.
+                </p>
+
+                <p>
+                    Saya senang mempelajari berbagai hal baru,
+                    memahami konsep ilmiah, serta mengeksplorasi
+                    bagaimana ilmu pengetahuan dapat diterapkan
+                    dalam kehidupan sehari-hari. Bagi saya, proses
+                    belajar bukan hanya tentang memperoleh informasi,
+                    tetapi juga tentang memahami, menganalisis, dan
+                    mengembangkan pengetahuan menjadi sesuatu
+                    yang bermanfaat.
+                </p>
+
+            </div>
+
+            <!-- HOBI DAN QUOTES -->
+
+            <div class="card">
+
+                <h2>Hobby</h2>
+
+                <div class="hobby-list">
+
+                    <div class="hobby-item">
+
+                        <span class="hobby-icon">📚</span>
+
+                        <div>
+                            <h3>Reading</h3>
+                            <p>Knowledge & Books</p>
+                        </div>
+
+                    </div>
+
+                    <div class="hobby-item">
+
+                        <span class="hobby-icon">🧪</span>
+
+                        <div>
+                            <h3>Experiment</h3>
+                            <p>Science & Research</p>
+                        </div>
+
+                    </div>
+
+                    <div class="hobby-item">
+
+                        <span class="hobby-icon">⚽</span>
+
+                        <div>
+                            <h3>Sport</h3>
+                            <p>Physical Activities</p>
+                        </div>
+
+                    </div>
+
+                    <div class="hobby-item">
+
+                        <span class="hobby-icon">🌍</span>
+
+                        <div>
+                            <h3>Exploration</h3>
+                            <p>Discover New Things</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- QUOTES -->
+
+                <div class="quote">
+
+                    <h3>My Quote</h3>
+
+                    <p>
+                        "Semakin banyak kamu menjelajah,
+                        semakin banyak hal yang kamu temukan.
+                        Jangan pernah berhenti belajar,
+                        karena ilmu pengetahuan tidak memiliki batas."
+                    </p>
+
+                    <small>~ Personal Motivation ~</small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>© 2026 Personal Profile</p>
+
+        <p>Designed by Fadzhar</p>
+
+    </footer>
+
+</div>
+
+</body>
+</html>
